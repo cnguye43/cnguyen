@@ -49,7 +49,20 @@
   {
     var data = currRSSData[n];
     var markup = JSON.stringify(data);
-    $("#theDetails").html(markup);
+    markup += "<img src='" + currRSSData[n].artworkUrl100 + "'>";
+    markup += "<a target='_blank' href='" + currRSSData[n].url + "'><h1>" + currRSSData[n].name + "</h1> (" + currRSSData[n].collectionName + ")</a>"
+    markup += "<a target='_blank' href='" + currRSSData[n].artistUrl + "'><h2>" + currRSSData[n].artistName + "</h2></a>"
+    var genres = currRSSData[n].genres;
+    markup += "<p> GENRES: <br>"
+    for(var i = 0; i < genres.length; i++){
+      markup += "<a target='_blank' href='" + genres[i].url + "'>" + genres[i].name+ "   </a></br>";
+    }
+    markup += "</p>"
+    markup += "<p>" + new Date(currRSSData[n].releaseDate).toDateString() + "</p>";
+    markup += "<p>" + currRSSData[n].copyright + "</p>";
+    
+    
+}
   }
   </script>
 
