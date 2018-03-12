@@ -49,17 +49,18 @@
   {
     var data = currRSSData[n];
     var markup = JSON.stringify(data);
-    markup += "<img src='" + currRSSData[n].artworkUrl100 + "'>";
-    markup += "<a target='_blank' href='" + currRSSData[n].url + "'><h1>" + currRSSData[n].name + "</h1> (" + currRSSData[n].collectionName + ")</a>"
-    markup += "<a target='_blank' href='" + currRSSData[n].artistUrl + "'><h2>" + currRSSData[n].artistName + "</h2></a>"
-    var genres = currRSSData[n].genres;
+    markup += "<img src='" + currRSSData[i].artworkUrl100 + "'>";
+    markup += "<a target='_blank' href='" + currRSSData[i].url + "'><h1>" + currRSSData[i].name + "</h1> (" + currRSSData[i].collectionName + ")</a>"
+    markup += "<a target='_blank' href='" + currRSSData[i].artistUrl + "'><h2>" + currRSSData[i].artistName + "</h2></a>"
+    var genres = currRSSData[i].genres;
     markup += "<p> GENRES: <br>"
     for(var i = 0; i < genres.length; i++){
       markup += "<a target='_blank' href='" + genres[i].url + "'>" + genres[i].name+ "   </a></br>";
     }
     markup += "</p>"
-    markup += "<p>" + new Date(currRSSData[n].releaseDate).toDateString() + "</p>";
-    markup += "<p>" + currRSSData[n].copyright + "</p>";
+    markup += "<p>" + new Date(currRSSData[i].releaseDate).toDateString() + "</p>";
+    markup += "<p>" + currRSSData[i].copyright + "</p>";
+     $("#theDetails").html(markup);
   }
   </script>
 
