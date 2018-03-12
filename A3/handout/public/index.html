@@ -9,12 +9,44 @@
       min-height: 100%;
       background: gray;
     } 
+
+    #rssbox button{
+    background-color: #b5d1bd;
+    border-radius: 3px;
+    font-size: 14px;
+
+  }
+
     #theDetails{
-      float:right;
       width: calc(100% - 250px);
       min-height: 100%;
       background: lightgray;
+      position: absolute;
+      right: 0px;
+      top: 80px;
+      min-height: 200px;
+      text-align: center;
+      background: rgba(0,0,0,.1);
     }
+
+    #theList button {
+      display: block;
+      width: 100%;
+      }
+
+    #theList button img {
+      width: 50px;
+      height: 50px;
+      float: left;
+      }
+
+    #theList button h1, #theList button h2 {
+        text-align: left;
+        width: calc(100% - 60px);
+        margin: 0px;
+        margin-left: 60px;
+    }
+
   </style>
   <script>
   function getDataFromServer(){
@@ -49,13 +81,13 @@
   {
     var markup = "";
     var data = currRSSData[n];
-    var thumbDetailed = data.artworkUrl100;
-    var nameDetailed = data.name;
+    var thumbImg = data.artworkUrl100;
+    var thumbName = data.name;
     var nameUrl = data.url;
-    var artistDetailed = data.artistName;
+    var artist = data.artistName;
     var artistUrl = data.artistUrl;
   
-    markup += "<img src='" + thumbDetailed + "'><h1>" + nameDetailed + "</h1><h2>" + artistDetailed + "</h2>";
+    markup += "<img src='" + thumbImg + "'><h1>" + thumbName + "</h1><h2>" + artist + "</h2>";
   
     $("#theDetails").html(markup);
   }
