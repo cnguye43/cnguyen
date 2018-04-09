@@ -5,78 +5,106 @@
   <script src='ac.js'></script>
   <link rel="stylesheet" type="text/css" href="ac.css">
   <style>
-    
-    #allImagesWrapper{
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: Helvetica, sans-serif;
-      float: center;
-      width: 100%;
-      height: 25%;
-      background: bisque; 
-    }
-  
-  #allImagesWrapper button{
-    background-color: paleturquoise;
-    border-radius: 8px;
-    cursor: pointer;
-    border: none;
-    font-weight: bold;
-    font-size: 16px;
+  #theInspector input[type=range]{
+    width: 65%;
+    display: inline-block;
+}
+#theInspector label{
+    width: 30%;
+    display: inline-block;
+    text-align: right;
+}
+body{
+  margin: 0px;
+}
+#theImageList .item button h1{
+    margin-left: 105px;
+}
+.item button .thumb{
+      width: 100px;
+    height: 100px;
+    float: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin-right: 5px;
+}
+  .item.active,
+  button.active,
+  .item.active button{
+    background:gold;
   }
-  
-  #theImageList {
-    height: 30%;
-    display: flex;
-    flex-wrap: wrap;
-      align-content: space-between;
-    padding: 30px;
+  .item{
+    background:white;
   }
-  
-  #theImageList button {
-    background: transparent;
-    border: transparent;
-    align-content: left;
+  .item,
+  #theList button{
+      border: 0px;
+      padding: 0px;
+      min-width: 100%;
+      box-shadow: 0px 0px 1px;
+      border:none;
+  }
+  button{
+    border:none;
+  }
+  #theImageList button h1,
+  #theImageList button h2,
+  #theList button h1,
+  #theList button h2
+  {
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 5px;
     text-align: left;
-    width:150px;
-    height:150px;
   }
-  
-  #theImageList .item {
-      padding: 10px;
-      display: grid;
-      align-content: start;
+  #theList button h2
+  {
+    font-size: 15px;
   }
-  
-  #theImageList h1 {
-    font-size: 14px;
-    font-weight: 100;
+  #theList button img{
+      height: 100px;
+      width: 100px;
+      float: left;
+      margin-right: 5px;
   }
-  
-  #theImageList img {
-    border-radius: 8px;
-    height:100px;
-    width:100px;
-  }
-  
-  #theImageList a {
-    color: black;
-    font-family: Helvetica, sans-serif;
-    font-size: 10px;
-    font-weight: 100;
-  }
-  
+    #editButton{
+      float: right;
+      margin-top: -50px;
+      margin-right: 5px;
+    }
+    #allImagesWrapper{
+      float:left;
+      width: 250px;
+      min-height: 100%;
+      background: gray;
+    } 
+    #theInspector{
+      float:right;
+      width: 250px;
+      min-height: 100%;
+      background: white;
+      top: 0px;
+    position: absolute;
+    right: 0px;
+    } 
+    #rssBox{
+      float:left;
+      width: 250px;
+      min-height: 100%;
+      background: lightgray;
+    } 
     #theDetails{
-    font-family:helvetica, sans-serif;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-      width: 100%;
-    height: auto;
-    overflow: auto;
+      width: calc(100% - 500px);
+      min-height: 100%;
+      background: lightgray;
+      text-align:center;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: contain;
+          margin-left: 250px;
     }
   
   </style>
