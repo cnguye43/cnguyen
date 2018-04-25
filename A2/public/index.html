@@ -4,24 +4,21 @@
   <script src='jquery-3.3.1.min.js'></script>
   <script>
 function sendToServer(){
-    var input = $("#eq").val();
-    encodeURIComponent("input")
-    var url = "./eval?" + input;
-    loadFile(url, function(resData){
-      decodeURIComponent("input")
-      $("#result").html(resData);
-    });
-  }
+  var url = "./eval?eq=" + encodeURIComponent($("#eq").val()); //need to implement "eq" textarea into url
+  console.log(url);
+  loadFile(url, function(resData){
+    $("#result").html(resData);
+});
+}
   </script>
 
 </head>
 
 <body>
-	<h1> Eval </h1>
+  <h1> Eval </h1>
   <textarea id='eq'></textarea>
   <button onclick='sendToServer()'> Evaluate </button>
-  <div id='result'> </div>
+  <div id='result'></div>
 </body>
 </html>
-
 

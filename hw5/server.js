@@ -55,6 +55,25 @@ app.get("/renameImg", function (req, res) {
 });
 
 
+app.get("/updateImg", function (req, res) {
+  var data = req.query;
+  var id = data.id;
+  var keys = Object.keys(data);
+ 
+  db.collection("img").findOne({id:id}, function(err, result){
+      console.log(id, err, result);
+      for(var i = 0; i < keys.length; i++){
+        var key = keys[i];
+        result[key] = data[key];
+      }
+
+      db.collection("img").save(result, function(err){
+        res.end("1");
+      });
+  });
+});
+
+
 app.get("/deleteImg", function (req, res) {
   var data = req.query;
   var id = data.id;

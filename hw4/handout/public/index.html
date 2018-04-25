@@ -24,20 +24,6 @@
   button{
     border:none;
   }
-  #renameBut {
-    font-size: 18px;
-    border: 1px solid black;
-    border-radius: 3px;
-    background-color: red;
-    text-decoration: none;
-  }
-  #delBut {
-    font-size: 18px;
-    border: 1px solid black;
-    border-radius: 3px;
-    background-color: red;
-    text-decoration: none;
-  }
   #theImageList button h1,
   #theImageList button h2,
   #theList button h1,
@@ -109,7 +95,6 @@
       });
     }
   }
-
   function getDataFromServer(){
     //var url = "./eval?eq=34-4*45";
     var url = "https://rss.itunes.apple.com/api/v1/us/apple-music/hot-tracks/all/10/explicit.json";
@@ -146,17 +131,11 @@
   }
   function imgSelected(n)
   {
-    $("#theList button").removeClass("active");
-    $("#theList button:nth-of-type(" + (n+1) + ")").addClass("active");
-    var data = currRSSData[n];
-    var markup = "";
-    var thumbnail = data.artworkUrl100 || "";
-    var name = data.name || "";
-    var link = data.url || "";
-    console.log(data);
-    markup += "<img src='" + thumbnail + "'>";
-    markup += "<a target='_blank' href='" + link + "'><h1>" + name + "</h1></a>";
-    $("#theDetails").html(markup);
+    var currName = currRSSFeedList[n].name;
+    var id = currRSSFeedList[n].id;
+    var imgURL = currRSSFeedList[n].url;
+    alert(imgURL);
+  $("#theDetails").html("<img src=\'" + imgURL + "\'></img");
   }
   function start()
   {
@@ -174,8 +153,8 @@
           for(var i = 0; i < allFeeds.length; i++){
             markup += "<div class='item'>";
               markup += "<button onclick='imgSelected(" + i + ")'><h1>" + allFeeds[i].name+ "</h1><h2>" + allFeeds[i].url + "<h2></button>";
-              markup += '<button id="renameBut"><a href="javascript:renameClicked(' + i + ')"> Rename </a></button><';
-              markup += '<button id="delBut"><a href="javascript:deleteClicked(' + i + ')"> Delete </a></button>';
+              markup += '<a href="javascript:renameClicked(' + i + ')"> Rename </a>';
+              markup += '<a href="javascript:deleteClicked(' + i + ')"> Delete </a>';
               markup += "</div>";
           }
           $("#theImageList").html(markup);
